@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Selector Copy 設定</title>
+    <link rel="stylesheet" href="options.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Selector Copy 設定</h1>
+        <button id="add-preset" type="button" class="primary">＋ preset を追加</button>
+      </header>
+
+      <p id="empty" class="empty" hidden>preset がありません。「＋ preset を追加」から作成してください。</p>
+
+      <div id="presets"></div>
+
+      <div id="toast" class="toast" hidden></div>
+    </div>
+
+    <template id="preset-template">
+      <section class="preset">
+        <div class="preset-head">
+          <input type="text" class="preset-name" placeholder="preset 名" />
+          <button type="button" class="delete-preset" title="この preset を削除">🗑</button>
+        </div>
+        <div class="xpaths"></div>
+        <button type="button" class="add-xpath">＋ XPath を追加</button>
+        <label class="separator-field">
+          <span>区切り文字</span>
+          <input type="text" class="preset-separator" placeholder="\n" />
+          <small>\n=改行, \t=タブ。空欄は改行</small>
+        </label>
+        <label class="template-field">
+          <span>テンプレート（任意）</span>
+          <textarea class="preset-template" rows="2" placeholder="例: 価格: {1} / 名前: {2}"></textarea>
+          <small>{1} {2}… に各 XPath の結果（区切り文字で連結）を差し込む。空欄なら全結果を区切り文字で連結</small>
+        </label>
+      </section>
+    </template>
+
+    <template id="xpath-template">
+      <div class="xpath-row">
+        <input type="text" class="xpath-input" placeholder="//div[@class='example']" />
+        <button type="button" class="delete-xpath" title="削除">✕</button>
+      </div>
+    </template>
+
+    <script type="module" src="options.js"></script>
+  </body>
+</html>

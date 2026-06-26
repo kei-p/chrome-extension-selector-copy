@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Selector Copy</h1>
+      <div class="actions">
+        <button id="pick-xpath" type="button" title="ページから XPath を取得">⌖</button>
+        <button id="open-options" type="button" title="設定">⚙︎</button>
+      </div>
+    </header>
+    <ul id="preset-list"></ul>
+    <p id="empty" class="empty" hidden>
+      preset がありません。<a href="#" id="open-options-link">設定</a>から追加してください。
+    </p>
+    <div id="toast" class="toast" hidden></div>
+    <script type="module" src="popup.js"></script>
+  </body>
+</html>
