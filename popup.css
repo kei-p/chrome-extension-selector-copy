@@ -63,27 +63,49 @@ ul {
   gap: 6px;
 }
 
-.preset-btn {
-  width: 100%;
-  text-align: left;
+#preset-list li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   padding: 8px 10px;
   border: 1px solid var(--border);
   border-radius: 8px;
   background: var(--bg);
-  cursor: pointer;
-  font-size: 14px;
-  color: var(--fg);
 }
 
-.preset-btn:hover {
-  border-color: var(--accent);
-  background: #f6f8fa;
+.preset-info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
 }
 
-.preset-btn .count {
+.preset-info .name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.preset-info .count {
   color: var(--muted);
   font-size: 12px;
-  margin-left: 6px;
+  flex-shrink: 0;
+}
+
+.copy-btn {
+  flex-shrink: 0;
+  padding: 5px 12px;
+  border: 1px solid var(--accent);
+  border-radius: 6px;
+  background: var(--accent);
+  color: var(--accent-fg);
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.copy-btn:hover {
+  filter: brightness(0.95);
 }
 
 .empty {
@@ -94,17 +116,13 @@ ul {
 }
 
 .toast {
-  position: fixed;
-  left: 50%;
-  bottom: 12px;
-  transform: translateX(-50%);
   background: #1f2328;
   color: #fff;
   font-size: 12px;
   padding: 6px 12px;
   border-radius: 6px;
-  max-width: 256px;
   text-align: center;
+  margin-bottom: 8px;
 }
 
 .toast.error {
