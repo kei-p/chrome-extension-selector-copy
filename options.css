@@ -172,12 +172,15 @@ button {
 
 .preset-template {
   width: 100%;
+  box-sizing: border-box;
   padding: 7px 10px;
   border: 1px solid var(--border);
   border-radius: 8px;
   font-size: 13px;
   font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-  resize: vertical;
+  resize: none;
+  overflow-y: auto;
+  max-height: 30vh;
 }
 
 .template-field > small {

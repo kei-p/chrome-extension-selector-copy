@@ -27,6 +27,12 @@ function scheduleSave() {
   }, 400);
 }
 
+// textarea の高さを内容に合わせて調整（CSS の max-height で上限）
+function autosize(el) {
+  el.style.height = "auto";
+  el.style.height = el.scrollHeight + 2 + "px"; // border 1px×2 分を加算
+}
+
 function renderXPathRow(preset, index) {
   const frag = xpathTemplate.content.cloneNode(true);
   const row = frag.querySelector(".xpath-row");
@@ -70,6 +76,7 @@ function renderPreset(preset) {
   templateInput.value = preset.template ?? "";
   templateInput.addEventListener("input", () => {
     preset.template = templateInput.value;
+    autosize(templateInput);
     scheduleSave();
   });
 
@@ -99,6 +106,8 @@ function render() {
   for (const preset of presets) {
     presetsEl.appendChild(renderPreset(preset));
   }
+  // DOM 挿入後でないと scrollHeight が取れないためここで初期高さを調整
+  presetsEl.querySelectorAll(".preset-template").forEach(autosize);
 }
 
 document.getElementById("add-preset").addEventListener("click", () => {
